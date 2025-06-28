@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  product_id Int      @id @default(autoincrement()) @map("product_id")
+  name       String
+  description String?
+  hex_code   String
+  finish     Finish
+  size       Size
+  price      Float
+  orders     Order[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("Products")
+}
+
+model Order {
+  order_id      Int       @id @default(autoincrement()) @map("order_id")
+  product_id    Int
+  size          Size
+  quantity      Int
+  customer_name String
+  phone         String
+  address       String
+  comment       String?
+  status        Status    @default(New)
+  created_at    DateTime  @default(now())
+  product       Product   @relation(fields: [product_id], references: [product_id])
+
+  @@map("Orders")
+}
+
+enum Finish {
+  Emulsion
+  Gloss
+  Satin
+}
+
+enum Size {
+  OneL
+  FourL
+  TwentyL
+}
+
+enum Status {
+  New
+  Processing
+  Completed
+}

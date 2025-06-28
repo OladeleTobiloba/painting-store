@@ -1,103 +1,154 @@
-import Image from "next/image";
+import Navigation from '@/components/Navigation'
+import Link from 'next/link'
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const featuredColors = [
+    { name: 'Sky Blue', hex: '#87CEEB', finish: 'Emulsion' },
+    { name: 'Warm White', hex: '#F5F5DC', finish: 'Emulsion' },
+    { name: 'Forest Green', hex: '#228B22', finish: 'Satin' },
+    { name: 'Sunset Orange', hex: '#FF7F50', finish: 'Gloss' },
+  ]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const categories = [
+    { name: 'Emulsion', description: 'Perfect for walls and ceilings', icon: '🏠' },
+    { name: 'Gloss', description: 'High shine for wood and metal', icon: '✨' },
+    { name: 'Satin', description: 'Elegant finish for any surface', icon: '🌟' },
+  ]
+
+  return (
+    <div className="min-h-screen">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="relative text-white" style={{ backgroundImage: "url('/living-room.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center relative z-10">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg" style={{textShadow: '0 2px 8px rgba(0,0,0,0.7)'}}>Transform Your Space</h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-medium drop-shadow" style={{textShadow: '0 2px 8px rgba(0,0,0,0.6)'}}>
+            Premium paint products with custom color mixing, delivery services, and expert advice for all your painting needs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/products" 
+              className="bg-white text-gray-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 border-2 border-gray-300 shadow-md"
+            >
+              Explore Colors
+            </Link>
+            <Link 
+              href="/about" 
+              className="border-2 border-gray-300 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-800 transition duration-300 shadow-md"
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Featured Categories */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-center mb-12 text-gray-900">Our Paint Categories</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {categories.map((category) => (
+              <div key={category.name} className="text-center p-6 rounded-lg border hover:shadow-lg transition duration-300 bg-white group">
+                <div className="text-4xl mb-4">{category.icon}</div>
+                <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition">{category.name}</h3>
+                <p className="text-gray-700 mb-4 font-medium">{category.description}</p>
+                <Link 
+                  href={`/products?finish=${category.name}`}
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                >
+                  View Products →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Colors */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-center mb-12 text-gray-900">Popular Colors</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {featuredColors.map((color) => (
+              <div key={color.name} className="text-center">
+                <div 
+                  className="w-full h-32 rounded-lg mb-4 shadow-md hover:shadow-xl transition duration-300 border border-gray-200"
+                  style={{ backgroundColor: color.hex }}
+                ></div>
+                <h3 className="font-bold mb-1 text-gray-800">{color.name}</h3>
+                <p className="text-sm text-gray-700 font-medium">{color.finish}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link 
+              href="/products" 
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 shadow-md"
+            >
+              View All Colors
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-extrabold mb-6 text-gray-900">About Our Store</h2>
+              <p className="text-gray-700 mb-6 font-medium">
+                We're your local paint experts, providing quality products and personalized service for all your painting projects. 
+                From custom color mixing to professional advice, we're here to help you achieve the perfect finish.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                  <span className="text-gray-800 font-semibold">Custom color mixing service</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                  <span className="text-gray-800 font-semibold">Local delivery available</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                  <span className="text-gray-800 font-semibold">Expert advice and support</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Store Image</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16" style={{ backgroundColor: '#f5f5dc' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Ready to Start Your Project?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-800">
+            Browse our selection of premium paints and place your order today. <br />
+            We'll help you find the perfect color for your space.
+          </p>
+          <Link 
+            href="/products" 
+            className="bg-white text-gray-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 border-2 border-gray-300 shadow-md"
+          >
+            Order Now
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p>&copy; 2024 Paint Store. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
