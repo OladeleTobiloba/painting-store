@@ -24,26 +24,6 @@ export default function ProductsPage() {
     color: ''
   })
 
-  useEffect(() => {
-    fetchProducts()
-  }, [])
-
-  useEffect(() => {
-    filterProducts()
-  }, [products, filters])
-
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('/api/products')
-      const data = await response.json()
-      setProducts(data)
-    } catch (error) {
-      console.error('Error fetching products:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
   const filterProducts = () => {
     let filtered = products
 
@@ -63,6 +43,22 @@ export default function ProductsPage() {
     }
 
     setFilteredProducts(filtered)
+  }
+
+  useEffect(() => {
+    filterProducts()
+  }, [filterProducts])
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('/api/products')
+      const data = await response.json()
+      setProducts(data)
+    } catch (error) {
+      console.error('Error fetching products:', error)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleFilterChange = (key: string, value: string) => {

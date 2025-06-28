@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     const color = searchParams.get('color')
     const id = searchParams.get('id')
 
-    const where: any = {}
+    const where: Record<string, unknown> = {}
     
     if (id) {
       where.product_id = parseInt(id)

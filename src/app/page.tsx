@@ -99,8 +99,8 @@ export default function Home() {
             <div>
               <h2 className="text-3xl font-extrabold mb-6 text-gray-900">About Our Store</h2>
               <p className="text-gray-700 mb-6 font-medium">
-                We're your local paint experts, providing quality products and personalized service for all your painting projects. 
-                From custom color mixing to professional advice, we're here to help you achieve the perfect finish.
+                We&apos;re your local paint experts, providing quality products and personalized service for all your painting projects. 
+                From custom color mixing to professional advice, we&apos;re here to help you achieve the perfect finish.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
@@ -130,7 +130,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-4 text-gray-900">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-800">
             Browse our selection of premium paints and place your order today. <br />
-            We'll help you find the perfect color for your space.
+            We&apos;ll help you find the perfect color for your space.
           </p>
           <Link 
             href="/products" 

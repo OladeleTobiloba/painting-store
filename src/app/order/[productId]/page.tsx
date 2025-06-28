@@ -100,7 +100,6 @@ export default function OrderPage({ params }: { params: Promise<{ productId: str
       })
 
       if (response.ok) {
-        const order = await response.json()
         alert('Order submitted successfully! We will contact you soon.')
         router.push('/products')
       } else {
@@ -165,7 +164,7 @@ export default function OrderPage({ params }: { params: Promise<{ productId: str
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Place Your Order</h1>
-          <p className="text-xl opacity-90">Complete your purchase and we'll deliver to your doorstep</p>
+          <p className="text-xl opacity-90">Complete your purchase and we&apos;ll deliver to your doorstep</p>
         </div>
       </div>
       
@@ -342,7 +341,7 @@ export default function OrderPage({ params }: { params: Promise<{ productId: str
                     Processing Order...
                   </div>
                 ) : (
-                  'Place Order Now'
+                  "Place Order Now"
                 )}
               </button>
             </form>
