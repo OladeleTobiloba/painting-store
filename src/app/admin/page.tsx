@@ -2,14 +2,13 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Navigation from '@/components/Navigation'
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState('dashboard')
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navigation />
+      {/* <Navigation /> */}
       
       {/* Hero Section */}
       <div className="relative w-full h-[220px] md:h-[280px] flex items-center" style={{ backgroundImage: 'url(/living-room.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>

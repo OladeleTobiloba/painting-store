@@ -1,12 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(request: Request, context: any) {
   try {
-    const productId = parseInt(params.id)
+    const productId = parseInt(context.params.id)
     const body = await request.json()
     const { name, description, hex_code, finish, size, price } = body
 
@@ -40,12 +37,9 @@ export async function PUT(
   }
 }
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(request: Request, context: any) {
   try {
-    const productId = parseInt(params.id)
+    const productId = parseInt(context.params.id)
 
     // Check if product has any orders
     const orders = await prisma.order.findMany({

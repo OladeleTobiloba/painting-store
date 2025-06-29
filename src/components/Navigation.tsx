@@ -11,9 +11,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-blue-600">Paint Store</span>
-            </Link>
+            <a href="/" className="flex items-center gap-2">
+              <img src="/logo-dark.png" alt="FBS Paint" className="h-8 w-auto" />
+            </a>
           </div>
           
           {/* Desktop menu */}
@@ -27,7 +27,7 @@ export default function Navigation() {
             <Link href="/about" className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
               About
             </Link>
-            <Link href="/admin" className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+            <Link href="/admin" className="bg-[#a49e94] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#8c857a]">
               Admin
             </Link>
           </div>
@@ -66,7 +66,7 @@ export default function Navigation() {
             <Link href="/about" className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">
               About
             </Link>
-            <Link href="/admin" className="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700">
+            <Link href="/admin" className="bg-[#a49e94] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-[#8c857a]">
               Admin
             </Link>
           </div>

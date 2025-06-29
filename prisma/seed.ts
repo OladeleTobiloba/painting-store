@@ -161,7 +161,8 @@ async function main() {
 // Clean up products with missing or invalid hex_code
 async function cleanInvalidHexCodes() {
   const allProducts = await prisma.product.findMany();
-  const invalidProducts = allProducts.filter(p => !p.hex_code || !/^#([0-9A-Fa-f]{3}){1,2}$/.test(p.hex_code));
+  type ProductType = typeof allProducts[number];
+  const invalidProducts = allProducts.filter((p: ProductType) => !p.hex_code || !/^#([0-9A-Fa-f]{3}){1,2}$/.test(p.hex_code));
   for (const prod of invalidProducts) {
     await prisma.product.delete({ where: { product_id: prod.product_id } });
     console.log(`Deleted product with id ${prod.product_id} due to invalid hex_code: ${prod.hex_code}`);

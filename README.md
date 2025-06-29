@@ -73,8 +73,8 @@ A modern, mobile-first website for a local paint retailer built with Next.js, Ty
    ```
 
 5. **Start the development server**
-   ```bash
-   npm run dev
+```bash
+npm run dev
    ```
 
 6. **Open your browser**
